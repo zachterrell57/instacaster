@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Image curation for the Farcaster protocol",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": {     
+    "watch": "tailwindcss -i ./public/input.css -o ./public/output.css --watch"
   },
   "author": "Zach Terrell",
   "license": "ISC",
