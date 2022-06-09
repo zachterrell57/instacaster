@@ -507,6 +507,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: flex;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -517,14 +525,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-full {
   height: 100%;
-}
-
-.h-6 {
-  height: 1.5rem;
-}
-
-.h-8 {
-  height: 2rem;
 }
 
 .w-screen {
@@ -580,10 +580,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-top-right-radius: 0.5rem;
 }
 
-.border-b {
-  border-bottom-width: 1px;
-}
-
 .border-t-2 {
   border-top-width: 2px;
 }
@@ -596,9 +592,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-right-width: 2px;
 }
 
-.border-border-gray {
-  --tw-border-opacity: 1;
-  border-color: rgb(219 219 219 / var(--tw-border-opacity));
+.border-b {
+  border-bottom-width: 1px;
 }
 
 .border-purple-main {
@@ -606,9 +601,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(135 101 204 / var(--tw-border-opacity));
 }
 
-.bg-primary {
+.border-border-gray {
+  --tw-border-opacity: 1;
+  border-color: rgb(219 219 219 / var(--tw-border-opacity));
+}
+
+.bg-purple-main {
   --tw-bg-opacity: 1;
-  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+  background-color: rgb(135 101 204 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -616,9 +616,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-purple-main {
+.bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(135 101 204 / var(--tw-bg-opacity));
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
 
 .object-contain {
@@ -644,11 +644,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-align: center;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -663,17 +658,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: .625rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .font-semibold {
   font-weight: 600;
 }
 
 .font-light {
   font-weight: 300;
-}
-
-.text-gray-600 {
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -691,13 +686,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
 .cast-merkle-root{
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
   /* change when time for clipboard functionality */
-  /* pointer-events: none;
-    cursor: default; */
+  pointer-events: none;
+  cursor: default;
 }
 
 .cast-merkle-root:hover{
