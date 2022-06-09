@@ -13,6 +13,7 @@
 }
 
 .cast-merkle-root:hover{
+    text-overflow: unset;
     overflow: visible;
-    white-space: normal;
+    white-space: normal;    
 }

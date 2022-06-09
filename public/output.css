@@ -519,18 +519,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }
 
-.h-8 {
-  height: 2rem;
-}
-
-.h-max {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-}
-
 .h-6 {
   height: 1.5rem;
+}
+
+.h-8 {
+  height: 2rem;
 }
 
 .w-screen {
@@ -539,10 +533,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-full {
   width: 100%;
-}
-
-.w-4\/5 {
-  width: 80%;
 }
 
 .w-8 {
@@ -555,18 +545,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .min-w-full {
   min-width: 100%;
-}
-
-.flex-1 {
-  flex: 1 1 0%;
-}
-
-.flex-auto {
-  flex: 1 1 auto;
-}
-
-.flex-grow {
-  flex-grow: 1;
 }
 
 .flex-row {
@@ -589,16 +567,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: center;
 }
 
-.self-center {
-  align-self: center;
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 
 .rounded-full {
   border-radius: 9999px;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
 }
 
 .rounded-t-lg {
@@ -702,9 +676,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
-.text-purple-main {
+.text-white {
   --tw-text-opacity: 1;
-  color: rgb(135 101 204 / var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-dark-gray-text {
@@ -717,21 +691,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 .cast-merkle-root{
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
   /* change when time for clipboard functionality */
-  pointer-events: none;
-  cursor: default;
+  /* pointer-events: none;
+    cursor: default; */
 }
 
 .cast-merkle-root:hover{
+  text-overflow: unset;
   overflow: visible;
   white-space: normal;
 }

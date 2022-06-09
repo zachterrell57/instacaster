@@ -1,7 +1,7 @@
 <div class="cast w-screen mt-4 sm:w-lg-card flex flex-col items-center bg-purple-main rounded-lg">
   <% if(cast.body.data.replyParentMerkleRoot) { %> 
     <div class="reply-indicator w-full h-6 flex flex-col items-center justify-center content-center rounded-t-lg border-t-2 border-l-2 border-r-2 border-purple-main">
-      <div class="reply-text"><span class="text-purple-main text-xs">Reply to <%= cast.meta.replyParentUsername %> </span></div>
+      <div class="reply-text"><span class="text-white text-xs">In reply to <%= cast.meta.replyParentUsername.username %> </span></div>
     </div>
   <% } %>
   <div class="cast-body min-w-full bg-white sm:rounded-lg sm:border sm:border-border-gray">
@@ -17,9 +17,9 @@
       </div>
       <div class="cast-names my-2 flex flex-col">
         <% if(cast.body.username) { %> 
-        <span class="cast__username text-sm font-semibold text-dark-gray-text"><%=cast.body.username %> </span>
+          <span class="cast__username text-sm font-semibold text-dark-gray-text"><%=cast.body.username %> </span>
         <% } %>
-        <a href="" class="cast-merkle-root text-tiny text-slate-400 font-light w-40"><%=cast.merkleRoot %></a>
+        <a href="" class="cast-merkle-root text-tiny text-slate-400 font-light w-40"><%=cast.merkleRoot%></a>
       </div>
     </div>
     <% if (cast.body.data.image) { %>
