@@ -8,14 +8,20 @@
     <link href="/output.css" rel="stylesheet" />
   </head>
   <body class="h-screen w-screen bg-primary">
-    <nav class="w-screen sticky top-0 h-14 bg-white flex justify-center items-center">
-        <span>Instacaster</span>
+    <nav
+      class="w-screen sticky top-0 h-14 bg-white flex justify-center items-center border-b border-border-gray"
+    >
+      <span>Instacaster</span>
     </nav>
     <div class="flex justify-center">
+      <% if (casts && casts.length > 0) { %>
       <div class="casts flex flex-col w-full justify-center items-center">
-        <% for (let index = 0; index < 5; index++) { %>
-            <%- include('../partials/cast'); %>              
-        <%} %>         
+        <% casts.forEach(cast => { %> <%-include('../partials/cast', {cast: cast}); %> <%}) %>
+        <%} else { %>
+        <div class="w-full h-full flex justify-center items-center">
+          <span class="text-center text-lg text-gray-600">No casts yet!</span>
+        </div>
+        <%} %>
       </div>
     </div>
   </body>

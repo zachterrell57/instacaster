@@ -12,6 +12,10 @@ module.exports = {
         'primary': '#f5f5f5',
         'border-gray': '#dbdbdb',
         'dark-gray-text': '#262626',
+        'purple-main': '#8765CC'
+      },
+      minWidth: {
+        'lg-card': '600px',
       },
     },
   },

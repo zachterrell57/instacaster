@@ -1,39 +1,90 @@
-<div class="cast w-screen mt-4 sm:w-lg-card bg-white sm:rounded-lg sm:border sm:border-border-gray">
-  <div class="cast-body">
+<div class="cast w-screen mt-4 sm:w-lg-card flex flex-col items-center bg-purple-main rounded-lg">
+  <% if(cast.body.data.replyParentMerkleRoot) { %> 
+    <div class="reply-indicator w-full h-6 flex flex-col items-center justify-center content-center rounded-t-lg border-t-2 border-l-2 border-r-2 border-purple-main">
+      <div class="reply-text"><span class="text-purple-main text-xs">Reply to <%= cast.meta.replyParentUsername %> </span></div>
+    </div>
+  <% } %>
+  <div class="cast-body min-w-full bg-white sm:rounded-lg sm:border sm:border-border-gray">
     <div class="user flex flex-row object-center items-center">
       <div class="w-8 h-8 flex object-center mx-3 my-2">
+        <% if(cast.meta.avatar) {%> 
         <img
           class="cast__avatar object-contain rounded-full"
-          src="/img/profile.jpg"
+          src=<%= cast.meta.avatar %>
           alt="cast-avatar"
         />
+        <% } %> 
       </div>
-      <div class="cast-names my-2">
-        <span class="cast__username text-sm font-semibold text-dark-gray-text">gregskril</span>
+      <div class="cast-names my-2 flex flex-col">
+        <% if(cast.body.username) { %> 
+        <span class="cast__username text-sm font-semibold text-dark-gray-text"><%=cast.body.username %> </span>
+        <% } %>
+        <a href="" class="cast-merkle-root text-tiny text-slate-400 font-light w-40"><%=cast.merkleRoot %></a>
       </div>
     </div>
+    <% if (cast.body.data.image) { %>
     <a
       class="cast-attachment-link"
-      href="https://i.imgur.com/YSRt1ta.pn/wiki/File:Test_image.jpgg"
+      href="<%= cast.body.data.image %>"
       target="_blank"
     >
       <img
         class="cast-attachment"
-        src="https://i.imgur.com/YSRt1ta.png"
+        src="<%= cast.body.data.image %>"
         loading="lazy"
         alt=""
       />
     </a>
-    <p class="cast-reactions mt-2">
-      <span class="cast-likes text-sm font-semibold text-dark-gray-text px-3">2 likes</span>
-    </p>
+    <% } %>
+    <div class="cast-reactions mt-2 flex flex-row">
+      <div class="likes">
+        <% if (cast.meta.reactions.count != 1) { %>
+          <span class="cast-likes text-sm font-semibold text-dark-gray-text pl-3"><%= cast.meta.reactions.count %> likes</span>
+        <% } else { %>
+          <span class="cast-likes text-sm font-semibold text-dark-gray-text pl-3"><%= cast.meta.reactions.count %> like</span>
+        <% } %>
+      </div>
+      <div class="recasts">
+        <% if (cast.meta.recasts.count != 1) { %>
+        <span class="cast-recasts text-sm font-semibold text-dark-gray-text pl-3"><%= cast.meta.recasts.count %> recasts</span>
+        <% } else { %>
+        <span class="cast-recasts text-sm font-semibold text-dark-gray-text pl-3"><%= cast.meta.recasts.count %> recast</span>
+        <% } %>
+      </div>
+    </div>
     <div class="caption px-3 mb-2">
-      <span class="cast__username text-sm font-semibold text-dark-gray-text">gregskril</span>
-      <span class="cast-text text-sm text-dark-gray-text">
-        Update: I've indexed all casts up to this point and searching is working
-        well! Now to add a UI
-      </span>
+      <% if (cast.body.data.text) { %> 
+        <% if (cast.body.username) { %>
+          <span class="cast__username text-sm font-semibold text-dark-gray-text"><%= cast.body.username %></span> 
+        <% } %> 
+        <span class="cast-text text-sm text-dark-gray-text"><%= cast.body.data.text %></span>
+      <% } %>
     </div>  
-    <p class="cast-date mb-3 px-3 text-tiny text-slate-400 font-light">3 HOURS AGO</p>
+    <p class="cast-date mb-3 px-3 text-tiny text-slate-400 font-light"><%= timeSince(cast.body.publishedAt) %>  AGO</p>
   </div>
 </div>
+
+<% function timeSince(date) {
+  var seconds = Math.floor((new Date() - date) / 1000);
+  var interval = Math.floor(seconds / 31536000);
+  if (interval > 1) {
+    return interval + " YEARS";
+  }
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) {
+    return interval + " MONTHS";
+  }
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) {
+    return interval + " DAYS";
+  }
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) {
+    return interval + " HOURS";
+  }
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) {
+    return interval + " MINUTES";
+  }
+  return Math.floor(seconds) + " SECONDS";
+} %>

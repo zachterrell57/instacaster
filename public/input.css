@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.cast-merkle-root{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    /* change when time for clipboard functionality */
+    pointer-events: none;
+    cursor: default;
+}
+
+.cast-merkle-root:hover{
+    overflow: visible;
+    white-space: normal;
+}
