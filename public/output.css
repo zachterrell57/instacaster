@@ -656,6 +656,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-family: Source Code Pro, monospace;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -675,9 +680,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: .625rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.font-normal {
+  font-weight: 400;
 }
 
 .font-semibold {
@@ -686,10 +690,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .font-light {
   font-weight: 300;
-}
-
-.font-normal {
-  font-weight: 400;
 }
 
 .text-gray-600 {
