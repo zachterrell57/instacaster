@@ -4,7 +4,7 @@
       <div class="reply-text"><span class="text-white text-xs">In reply to <%= cast.meta.replyParentUsername.username %> </span></div>
     </div>
   <% } %>
-  <div class="cast-body min-w-full bg-white sm:rounded-lg sm:border sm:border-border-gray">
+  <div class="cast-body min-w-full max-w-full bg-white sm:rounded-lg sm:border sm:border-border-gray">
     <div class="user flex flex-row object-center items-center">
       <div class="w-8 h-8 flex object-center mx-3 my-2">
         <% if(cast.meta.avatar) {%> 
@@ -57,7 +57,7 @@
         <% if (cast.body.username) { %>
           <span class="cast__username text-sm font-semibold text-dark-gray-text"><%= cast.body.username %></span> 
         <% } %> 
-        <span class="cast-text text-sm text-dark-gray-text"><%= cast.body.data.text %></span>
+        <span class="cast-text break-words text-sm text-dark-gray-text"><%= cast.body.data.text %></span>
       <% } %>
     </div>  
     <p class="cast-date mb-3 px-3 text-tiny text-slate-400 font-light"><%= timeSince(cast.body.publishedAt) %>  AGO</p>

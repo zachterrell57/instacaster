@@ -547,6 +547,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   min-width: 100%;
 }
 
+.max-w-full {
+  max-width: 100%;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -565,6 +569,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .justify-center {
   justify-content: center;
+}
+
+.break-words {
+  overflow-wrap: break-word;
 }
 
 .rounded-lg {
