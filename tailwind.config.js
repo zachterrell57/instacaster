@@ -8,6 +8,9 @@ module.exports = {
       fontSize: {
         "tiny": ".625rem",
       },
+      fontFamily:{
+        'source-code-pro': ['Source Code Pro', 'monospace'],
+      },
       colors: {
         'primary': '#f5f5f5',
         'border-gray': '#dbdbdb',

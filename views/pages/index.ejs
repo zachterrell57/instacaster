@@ -5,13 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Instacaster</title>
+    <link rel="icon" type="image/x-icon" href="img/instacaster-icon.png">
+    <link rel="apple-touch-icon" href="/img/instacaster-icon.png">
     <link href="/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet">
   </head>
   <body class="h-screen w-screen bg-primary">
     <nav
       class="w-screen sticky top-0 h-14 bg-white flex justify-center items-center border-b border-border-gray"
     >
-      <span>Instacaster</span>
+      <span class="font-source-code-pro font-normal text-3xl">Instacaster 📸</span>
     </nav>
     <div class="flex justify-center">
       <% if (casts && casts.length > 0) { %>
