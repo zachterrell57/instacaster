@@ -468,10 +468,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-sepia:  ;
 }
 
-.relative {
-  position: relative;
-}
-
 .sticky {
   position: -webkit-sticky;
   position: sticky;
@@ -490,24 +486,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 0.75rem;
 }
 
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
 }
 
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .mt-4 {
@@ -548,10 +534,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-8 {
   height: 2rem;
-}
-
-.h-auto {
-  height: auto;
 }
 
 .max-h-8 {
@@ -665,16 +647,6 @@ Ensure the default browser behavior of the `hidden` attribute.
      object-fit: contain;
 }
 
-.object-cover {
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.object-scale-down {
-  -o-object-fit: scale-down;
-     object-fit: scale-down;
-}
-
 .object-center {
   -o-object-position: center;
      object-position: center;
@@ -785,5 +757,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   .sm\:border-border-gray {
     --tw-border-opacity: 1;
     border-color: rgb(219 219 219 / var(--tw-border-opacity));
+  }
+
+  .sm\:hover\:text-\[0\.5rem\]:hover {
+    font-size: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:text-tiny {
+    font-size: .625rem;
   }
 }
