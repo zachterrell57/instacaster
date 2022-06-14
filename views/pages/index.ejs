@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:image" content="img/instacaster-icon.png">
-    <meta name="description" content='What if you just returned all casts that contained "imgur"?'>
+    <meta property="og:image" content="img/instacaster-icon.png" />
+    <meta
+      name="description"
+      content='What if you just returned all casts that contained "imgur"?'
+    />
     <title>Instacaster</title>
     <link rel="icon" type="image/x-icon" href="img/instacaster-icon.png" />
     <link rel="apple-touch-icon" href="img/instacaster-icon.png" />
@@ -17,6 +20,20 @@
       rel="stylesheet"
     />
   </head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-WHF1M4QWZX"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-WHF1M4QWZX");
+  </script>
   <body class="h-screen w-screen bg-primary">
     <nav
       class="w-screen sticky top-0 h-14 bg-white flex justify-center items-center border-b border-border-gray"
