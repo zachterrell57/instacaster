@@ -6,10 +6,10 @@
   <% } %>
   <div class="cast-body min-w-full max-w-full bg-white sm:rounded-lg sm:border sm:border-border-gray">
     <div class="user flex flex-row object-center items-center">
-      <div class="w-8 h-8 flex object-center mx-3 my-2">
-        <% if(cast.meta.avatar) {%> 
+      <div class="max-h-8 w-8 flex mx-3 my-3">
+        <% if(cast.meta.avatar){%> 
         <img
-          class="cast__avatar object-contain rounded-full"
+          class="cast__avatar rounded-full align-middle"
           src=<%= cast.meta.avatar %>
           alt="cast-avatar"
         />
@@ -17,19 +17,19 @@
       </div>
       <div class="cast-names my-2 flex flex-col w-full">
         <% if(cast.body.username) { %> 
-          <span class="cast__username text-sm font-semibold text-dark-gray-text"><%=cast.body.username %> </span>
+          <span class="cast__username text-sm font-semibold text-dark-gray-text"><%=cast.body.username %></span>
         <% } %>
-        <a href="#" class="cast-merkle-root text-tiny text-slate-400 font-light w-40"><%=cast.merkleRoot%></a>
+        <span class="cast-merkle-root text-tiny text-slate-400 font-light w-40"><%=cast.merkleRoot%></span>
       </div>
     </div>
     <% if (cast.body.data.image) { %>
     <a
-      class="cast-attachment-link"
+      class="cast-attachment-link flex content-center justify-center items-center"
       href="<%= cast.body.data.image %>"
       target="_blank"
     >
       <img
-        class="cast-attachment"
+        class="cast-attachment m-0"
         src="<%= cast.body.data.image %>"
         loading="lazy"
         alt=""
@@ -64,27 +64,43 @@
   </div>
 </div>
 
-<% function timeSince(date) {
+<% 
+function timeSince(date) {
   var seconds = Math.floor((new Date() - date) / 1000);
-  var interval = Math.floor(seconds / 31536000);
-  if (interval > 1) {
-    return interval + " YEARS";
-  }
-  interval = Math.floor(seconds / 2592000);
-  if (interval > 1) {
-    return interval + " MONTHS";
-  }
-  interval = Math.floor(seconds / 86400);
-  if (interval > 1) {
-    return interval + " DAYS";
-  }
-  interval = Math.floor(seconds / 3600);
-  if (interval > 1) {
-    return interval + " HOURS";
-  }
+  
   interval = Math.floor(seconds / 60);
-  if (interval > 1) {
+  if (interval > 1 && interval < 60) {
     return interval + " MINUTES";
   }
+  interval = Math.floor(seconds / 3600);
+  if (interval >= 1 && interval < 24) {
+    if(interval == 1) {
+      return interval + " HOUR";
+    }
+    return interval + " HOURS";
+  }
+  interval = Math.floor(seconds / 86400);
+  if (interval >= 1 && interval < 30) {
+    if(interval == 1) {
+      return interval + " DAY";
+    }
+    return interval + " DAYS";
+  }
+  interval = Math.floor(seconds / 2592000);
+  if (interval >= 1 && interval < 12) {
+    if(interval == 1) {
+      return interval + " MONTH";
+    }
+    return interval + " MONTHS";
+  }
+  interval = Math.floor(seconds / 31536000);
+  if (interval >= 1) {
+    if(interval == 1) {
+      return interval + " YEAR";
+    }
+    return interval + " YEARS";
+  }
+
   return Math.floor(seconds) + " SECONDS";
-} %>
+}
+%> 
