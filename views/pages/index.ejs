@@ -42,20 +42,20 @@
       gtag("config", "G-WHF1M4QWZX");
     </script>
   </head>
-  <body class="h-screen w-screen bg-primary">
+  <body class="h-screen w-screen overflow-x-hidden bg-primary">
     <nav
-      class="w-screen sticky top-0 h-14 bg-white flex justify-center items-center border-b border-border-gray"
+      class="sticky top-0 flex h-14 w-screen items-center justify-center border-b border-border-gray bg-white"
     >
-      <span class="font-source-code-pro font-normal text-3xl"
+      <span class="font-source-code-pro text-3xl font-normal"
         >Instacaster 📸</span
       >
     </nav>
     <div class="flex justify-center">
       <% if (casts && casts.length > 0) { %>
-      <div class="casts flex flex-col w-full justify-center items-center">
+      <div class="casts flex w-full flex-col items-center justify-center">
         <% casts.forEach(cast => { %> <%-include('../partials/cast', {cast:
         cast}); %> <%}) %> <%} else { %>
-        <div class="w-full h-full flex justify-center items-center">
+        <div class="flex h-full w-full items-center justify-center">
           <span class="text-center text-lg text-gray-600">No casts yet!</span>
         </div>
         <%} %>
