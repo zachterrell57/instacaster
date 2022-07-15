@@ -1,72 +1,105 @@
 import type { NextPage } from 'next'
 import type { GenericCast } from '../types'
-import Head from 'next/head'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import Cast from '../components/cast'
-import useSWR from 'swr'
+import { useState } from 'react'
+import GenericCastComponent from '../components/GenericCastComponent';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import Head from 'next/head';
 
 type HomeProps = {
-  casts: GenericCast[]
+  castsProp: GenericCast[]
 }
 
-const Home: NextPage<HomeProps> = ({ casts }) => {
-  // const [casts, setCasts] = useState<Cast[]>([])
+let pageNumber: number = 1;
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await fetch('https://farcaster-search.gregskril.com/api/search?text=imgur',
-  //     ).then(res => res.json())
-  //       .then(data => {
-  //         data['casts'].map((jsonCast: any) => {
-  //           setCasts(casts => [...casts, (jsonCast as Cast)])
-  //         });
-  //       })
-  //   }
-  //   fetchData();
-  // }, [])
+const Home: NextPage<HomeProps> = ({ castsProp }) => {
+  const [casts, setCasts] = useState<GenericCast[]>(castsProp)
+  const [hasMore] = useState<boolean>(true)
+
+  const fetchNewData = async () => {
+    pageNumber++;
+    await fetch('https://farcaster-search.gregskril.com/api/search?text=imgur&count=20&page=' + pageNumber,
+    ).then(res => res.json())
+      .then(data => {
+        data['casts'].map((jsonCast: any) => {
+          setCasts(casts => casts.concat(jsonCast as GenericCast))
+        })
+      })
+  };
 
   const castFeed = (
-    <div className="casts flex w-full flex-col items-center justify-center">
-      {casts.map((cast: GenericCast, index: number) => (
-        <Cast cast={cast} index={index} />
-      ))}
-    </div>
-  )
-
-  const errorFeed = (
-    <div>Error</div>
+    <InfiniteScroll
+      dataLength={casts.length} //This is important field to render the next data
+      next={fetchNewData}
+      scrollThreshold={0.5}
+      hasMore={hasMore}
+      loader={<h4>Loading...</h4>}
+      scrollableTarget="scrollableDiv"
+      endMessage={
+        <p style={{ textAlign: 'center' }}>
+          <b>Yay! You have seen it all</b>
+        </p>
+      }
+    >
+      <div className="casts flex w-full flex-col items-center justify-center">
+        {casts.map((cast: GenericCast, index: number) => (
+          <GenericCastComponent cast={cast} initImage={index == 0 || index == 1 ? true : false} key={index} />
+        ))}
+      </div>
+    </InfiniteScroll>
   )
 
   return (
-    <div className="h-screen w-screen overflow-x-hidden bg-primary">
-      <nav
-        className="sticky top-0 flex h-14 w-screen items-center justify-center border-b border-border-gray bg-white"
-      >
-        <span className="font-source-code-pro text-3xl font-normal">Instacaster 📸</span>
-      </nav>
-      <div className="flex justify-center">
-        {casts ? castFeed : null}
+    <>
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          property="og:image"
+          content="https://instacaster.xyz/instacaster-icon.png"
+        />
+        <meta name="theme-color" content="#8765CC" />
+        <meta property="og:image:type" content="/instacaster-icon.png" />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="300" />
+        <meta property="og:image" />
+        <meta
+          name="description"
+          content='What if you just returned all casts that contained "imgur"?'
+        />
+        <title>Instacaster</title>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" type="image/x-icon" href="/instacaster-icon.png" />
+        <link rel="apple-touch-icon" href="/instacaster-icon.png" />
+      </Head>
+
+      <div className="h-screen w-screen overflow-x-hidden bg-primary" id='scrollableDiv'>
+        <nav
+          className="sticky top-0 z-10 flex h-14 w-screen items-center justify-center border-b border-border-gray bg-white"
+        >
+          <span className="font-source-code-pro text-3xl font-normal">Instacaster 📸</span>
+        </nav>
+        <div className="flex justify-center">
+          {casts ? castFeed : null}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
 export async function getServerSideProps() {
 
-  const casts: GenericCast[] = [];
-
-  // Fetch data from external API
-  await fetch('https://farcaster-search.gregskril.com/api/search?text=imgur'
+  const castsProp: GenericCast[] = [];
+  await fetch('https://farcaster-search.gregskril.com/api/search?text=imgur&count=20'
   ).then(res => res.json())
     .then(data => {
       data['casts'].map((jsonCast: any) => {
-        casts.push(jsonCast as GenericCast)
+        castsProp.push(jsonCast as GenericCast)
       });
     })
 
   // Pass data to the page via props
-  return { props: { casts } }
+  return { props: { castsProp } }
 }
 
 export default Home
