@@ -19,7 +19,7 @@ type CastData = {
 
 type CastMeta = {
   displayName?: string;
-  avatar?: string;
+  avatar: string;
   isVerifiedAvatar?: boolean;
   reactions: {
     count: number;

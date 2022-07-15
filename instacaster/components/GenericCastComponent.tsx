@@ -1,13 +1,15 @@
 import { GenericCast } from '../types'
 import { timeSince } from '../utils'
 import Image from 'next/future/image'
+import AvatarWithFallback from './AvatarWithFallback'
 
 type Props = {
     cast: GenericCast
-    index: number
+    initImage: boolean
 }
 
-const Cast = ({ cast, index }: Props) => {
+const GenericCastComponent = ({ cast, initImage }: Props) => {
+
     const reply = (
         <div className="w-full h-6 flex flex-col items-center justify-center content-center rounded-t-lg border-t-2 border-l-2 border-r-2 border-purple-main">
             <div className="reply-text">
@@ -17,23 +19,16 @@ const Cast = ({ cast, index }: Props) => {
     )
 
     const avatar = (
-        <img
-            className="cast__avatar rounded-full align-middle"
-            src={cast.meta.avatar}
-            alt="cast-avatar"
-            loading='lazy'
-        />
+        <AvatarWithFallback src={cast.meta.avatar} />
     )
 
     const image = (
-
         <a
             className="cast-attachment-link relative flex content-center justify-center items-center"
             href={cast.body.data.image}
-            target="_blank"
         >
             <Image
-                priority={index < 1 ? true : false}
+                priority={initImage ? true : false}
                 className="cast-attachment w-full m-0"
                 src={cast.body.data.image!}
                 alt=""
@@ -116,4 +111,4 @@ const Cast = ({ cast, index }: Props) => {
     );
 }
 
-export default Cast;
+export default GenericCastComponent;
