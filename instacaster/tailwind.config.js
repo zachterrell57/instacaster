@@ -21,6 +21,9 @@ module.exports = {
         "dark-gray-text": "#262626",
         "purple-main": "#8765CC",
       },
+      maxWidth: {
+        avatar: "32px",
+      },
       minWidth: {
         "lg-card": "600px",
       },

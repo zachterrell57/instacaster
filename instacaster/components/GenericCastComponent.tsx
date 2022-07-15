@@ -83,7 +83,7 @@ const GenericCastComponent = ({ cast, initImage }: Props) => {
             <div className="cast-body min-w-full max-w-full bg-white sm:rounded-lg sm:border sm:border-border-gray">
 
                 <div className="user flex flex-row object-center items-center">
-                    <div className="max-h-8 w-8 flex mx-3 my-3">
+                    <div className="h-8 w-8 max-h-8 max-w-avatar flex mx-3 my-3">
                         {cast.meta.avatar ? avatar : null}
                     </div>
                     <div className="cast-names my-2 flex flex-col w-full">
