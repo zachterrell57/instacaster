@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
-import type { GenericCast } from '../types'
 import { useState } from 'react'
+import type { GenericCast } from '../types'
+import Header from '../components/Header';
 import GenericCastComponent from '../components/GenericCastComponent';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Head from 'next/head';
 
 type HomeProps = {
   castsProp: GenericCast[]
@@ -42,7 +42,8 @@ const Home: NextPage<HomeProps> = ({ castsProp }) => {
     >
       <div className="casts flex w-full flex-col items-center justify-center">
         {casts.map((cast: GenericCast, index: number) => (
-          <GenericCastComponent cast={cast} initImage={index == 0 || index == 1 ? true : false} key={index} />
+          cast.body.data.image ?
+            <GenericCastComponent cast={cast} initImage={index == 0 || index == 1 ? true : false} key={index} /> : null
         ))}
       </div>
     </InfiniteScroll>
@@ -50,28 +51,7 @@ const Home: NextPage<HomeProps> = ({ castsProp }) => {
 
   return (
     <>
-      <Head>
-        <meta charSet="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          property="og:image"
-          content="https://instacaster.xyz/instacaster-icon.png"
-        />
-        <meta name="theme-color" content="#8765CC" />
-        <meta property="og:image:type" content="/instacaster-icon.png" />
-        <meta property="og:image:width" content="300" />
-        <meta property="og:image:height" content="300" />
-        <meta property="og:image" />
-        <meta
-          name="description"
-          content='What if you just returned all casts that contained "imgur"?'
-        />
-        <title>Instacaster</title>
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" type="image/x-icon" href="/instacaster-icon.png" />
-        <link rel="apple-touch-icon" href="/instacaster-icon.png" />
-      </Head>
+      <Header />
 
       <div className="h-screen w-screen overflow-x-hidden bg-primary" id='scrollableDiv'>
         <nav
