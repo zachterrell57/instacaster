@@ -17,7 +17,7 @@ const Home: NextPage<HomeProps> = ({ castsProp }) => {
 
   const fetchNewData = async () => {
     pageNumber++;
-    await fetch('https://farcaster-search.gregskril.com/api/search?text=imgur&count=20&page=' + pageNumber,
+    await fetch('https://searchcaster.xyz/api/search?text=imgur&count=20&page=' + pageNumber,
     ).then(res => res.json())
       .then(data => {
         data['casts'].map((jsonCast: any) => {
@@ -70,7 +70,7 @@ const Home: NextPage<HomeProps> = ({ castsProp }) => {
 export async function getServerSideProps() {
 
   const castsProp: GenericCast[] = [];
-  await fetch('https://farcaster-search.gregskril.com/api/search?text=imgur&count=20'
+  await fetch('https://searchcaster.xyz/api/search?text=imgur&count=20'
   ).then(res => res.json())
     .then(data => {
       data['casts'].map((jsonCast: any) => {
