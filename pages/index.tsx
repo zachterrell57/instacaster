@@ -24,6 +24,7 @@ const Home: NextPage<HomeProps> = ({ castsProp }) => {
           setCasts(casts => casts.concat(jsonCast as GenericCast))
         })
       })
+      .catch(err => console.log(err))
   };
 
   const castFeed = (
