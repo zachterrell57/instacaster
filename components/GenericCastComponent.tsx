@@ -102,7 +102,7 @@ const GenericCastComponent = ({ cast, initImage }: Props) => {
                     </div>
                 </div>
 
-                <div className="caption px-3 mb-2">
+                <div className="caption block px-3 mb-2">
                     {cast.body.data.text && cast.body.username ? text : null}
                 </div>
                 {castTimeStamp}
