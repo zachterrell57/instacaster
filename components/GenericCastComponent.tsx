@@ -28,12 +28,12 @@ const GenericCastComponent = ({ cast, initImage }: Props) => {
             className="cast-attachment-link relative flex content-center justify-center items-center"
             href={cast.body.data.image}
         >
-            {/* <img
+            <img
                 loading={initImage ? 'eager' : 'lazy'}
                 className="cast-attachment w-full m-0"
                 src={cast.body.data.image!}
                 alt=""
-            /> */}
+            />
         </a>
     )
 
