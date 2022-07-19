@@ -19,7 +19,19 @@ const GenericCastComponent = ({ cast, initImage }: Props) => {
     )
 
     const avatar = (
-        <AvatarWithFallback src={cast.meta.avatar} verified={cast.meta.isVerifiedAvatar} />
+        <img
+            className={"h-8 max-h-8 w-8 max-w-avatar cast__avatar rounded-full align-middle " + (cast.meta.isVerifiedAvatar ? 'border-purple-main border-2' : '')}
+            src={cast.meta.avatar}
+            alt="cast-avatar"
+        />
+    )
+
+    const fallbackAvatar = (
+        <img
+            className={"h-8 max-h-8 w-8 max-w-avatar cast__avatar rounded-full align-middle"}
+            src="/avatar"
+            alt="cast-avatar"
+        />
     )
 
     const image = (
@@ -84,7 +96,7 @@ const GenericCastComponent = ({ cast, initImage }: Props) => {
 
                 <div className="user flex flex-row object-center items-center">
                     <div className="h-8 w-8 max-h-8 max-w-avatar flex mx-3 my-3">
-                        {cast.meta.avatar ? avatar : null}
+                        {cast.meta.avatar ? avatar : fallbackAvatar}
                     </div>
                     <div className="cast-names my-2 flex flex-col w-full">
                         {cast.body.username ? username : null}
