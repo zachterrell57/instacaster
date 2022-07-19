@@ -12,7 +12,6 @@ export default function AvatarWithFallback({ src, verified }: Props) {
             className={"h-8 max-h-8 w-8 max-w-avatar cast__avatar rounded-full align-middle " + (verified ? 'border-purple-main border-2' : '')}
             src={imgSrc}
             alt="cast-avatar"
-            loading='lazy'
             onError={() => {
                 setImgSrc('/avatar.png');
             }}
