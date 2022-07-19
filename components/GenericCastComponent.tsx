@@ -29,7 +29,7 @@ const GenericCastComponent = ({ cast, initImage }: Props) => {
     const fallbackAvatar = (
         <img
             className={"h-8 max-h-8 w-8 max-w-avatar cast__avatar rounded-full align-middle"}
-            src="/avatar"
+            src="/avatar.pngwai"
             alt="cast-avatar"
         />
     )
