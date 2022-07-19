@@ -19,7 +19,11 @@ const GenericCastComponent = ({ cast, initImage }: Props) => {
     )
 
     const avatar = (
-        <AvatarWithFallback src={cast.meta.avatar} verified={cast.meta.isVerifiedAvatar} />
+        <img
+            className={"h-8 max-h-8 w-8 max-w-avatar cast__avatar rounded-full align-middle " + (cast.meta.isVerifiedAvatar ? 'border-purple-main border-2' : '')}
+            src={cast.meta.avatar}
+            alt="cast-avatar"
+        />
     )
 
     const image = (
