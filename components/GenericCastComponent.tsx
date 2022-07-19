@@ -29,14 +29,14 @@ const GenericCastComponent = ({ cast, initImage }: Props) => {
     const fallbackAvatar = (
         <img
             className={"h-8 max-h-8 w-8 max-w-avatar cast__avatar rounded-full align-middle"}
-            src="/avatar.pngwai"
+            src="/avatar.png"
             alt="cast-avatar"
         />
     )
 
     const image = (
         <a
-            className="cast-attachment-link relative flex content-center justify-center items-center"
+            className="cast-attacwhment-link relative flex content-center justify-center items-center"
             href={cast.body.data.image}
         >
             {/* <img
