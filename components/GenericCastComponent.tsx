@@ -66,8 +66,8 @@ const GenericCastComponent = ({ cast, initImage }: Props) => {
 
     const text = (
         <>
-            <span className="cast__username text-sm font-semibold text-dark-gray-text">{cast.body.username}&nbsp;</span>
-            <span className="cast-text break-words break-before-all text-sm text-dark-gray-text">{cast.body.data.text}</span>
+            {/* <span className="cast__username text-sm font-semibold text-dark-gray-text">{cast.body.username}&nbsp;</span>
+            <span className="cast-text break-words break-before-all text-sm text-dark-gray-text">{cast.body.data.text}</span> */}
         </>
     )
 

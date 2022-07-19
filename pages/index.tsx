@@ -17,9 +17,8 @@ const Home: NextPage<HomeProps> = ({ castsProp }) => {
 
   const fetchNewData = async () => {
     pageNumber++;
-    await fetch('https://searchcaster.xyz/api/search?text=imgur&count=30&page=' + pageNumber,
+    await fetch('https://searchcaster.xyz/api/search?text=imgur&count=20&page=' + pageNumber,
     ).then(res => {
-      console.log("here");
       return res.json()
     })
       .then(data => {
