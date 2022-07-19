@@ -18,7 +18,10 @@ const Home: NextPage<HomeProps> = ({ castsProp }) => {
   const fetchNewData = async () => {
     pageNumber++;
     await fetch('https://searchcaster.xyz/api/search?text=imgur&count=20&page=' + pageNumber,
-    ).then(res => res.json())
+    ).then(res => {
+      console.log("here");
+      return res.json()
+    })
       .then(data => {
         data['casts'].map((jsonCast: any) => {
           setCasts(casts => casts.concat(jsonCast as GenericCast))
