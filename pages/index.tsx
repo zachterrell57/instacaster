@@ -4,6 +4,7 @@ import type { GenericCast } from '../types'
 import Header from '../components/Header';
 import GenericCastComponent from '../components/GenericCastComponent';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Navbar from '../components/Navbar';
 
 type HomeProps = {
   castsProp: GenericCast[]
@@ -55,13 +56,8 @@ const Home: NextPage<HomeProps> = ({ castsProp }) => {
   return (
     <>
       <Header />
-
+      <Navbar />
       <div className="h-screen w-screen overflow-x-hidden bg-primary" id='scrollableDiv'>
-        <nav
-          className="sticky top-0 z-10 flex h-14 w-screen items-center justify-center border-b border-border-gray bg-white"
-        >
-          <span className="font-source-code-pro text-3xl font-normal">Instacaster 📸</span>
-        </nav>
         <div className="flex justify-center">
           {casts ? castFeed : null}
         </div>

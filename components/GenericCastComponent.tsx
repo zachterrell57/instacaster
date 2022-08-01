@@ -1,7 +1,5 @@
 import { GenericCast } from '../types'
 import { timeSince } from '../utils'
-import Image from 'next/future/image'
-import AvatarWithFallback from './AvatarWithFallback'
 
 type Props = {
     cast: GenericCast
