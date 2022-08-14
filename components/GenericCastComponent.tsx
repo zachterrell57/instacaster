@@ -22,7 +22,6 @@ const GenericCastComponent = ({ cast, initImage }: Props) => {
         <img
             className={"h-8 max-h-8 w-8 max-w-avatar cast__avatar rounded-full align-middle " + (cast.meta.isVerifiedAvatar ? 'border-purple-main border-2' : '')}
             src={cast.meta.avatar}
-            loading='lazy'
             alt="cast-avatar"
         />
     )
@@ -31,7 +30,6 @@ const GenericCastComponent = ({ cast, initImage }: Props) => {
         <img
             className={"h-8 max-h-8 w-8 max-w-avatar cast__avatar rounded-full align-middle"}
             src="/avatar.png"
-            loading='lazy'
             alt="cast-avatar"
         />
     )
