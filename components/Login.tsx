@@ -8,7 +8,7 @@ interface Props {
 
 const Login = ({ setLoggedInProps }: Props) => {
     const [signature, setSignature] = useState(null)
-    const [publicKey, setPublicKey] = useState(null)
+    const [address, setAddress] = useState(null)
     const [username, setUsername] = useState("")
 
     // Call handleLogin on mount
@@ -18,7 +18,7 @@ const Login = ({ setLoggedInProps }: Props) => {
         , [])
 
     async function initializeLogin() {
-        const res = await fetch('/api/generateSignature', {
+        const res = await fetch('/api/getSignature', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const Login = ({ setLoggedInProps }: Props) => {
         if (res.status === 200) {
             //get the signature from the response
             const json = await res.json()
-            setPublicKey(json.publicKey)
+            setAddress(json.address)
             setSignature(json.signature)
         }
     }
@@ -39,7 +39,7 @@ const Login = ({ setLoggedInProps }: Props) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                publicKey: publicKey,
+                address: address,
                 username: username,
             })
         })
