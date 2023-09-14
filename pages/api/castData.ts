@@ -12,7 +12,7 @@ export default async function handler(
   const { page } = req.query;
   const pageNumber = Number(page);
 
-  const data = await fetch('https://searchcaster.xyz/api/search?text=imgur&count=20&page=' + pageNumber)
+  const data = await fetch('https://searchcaster.xyz/api/search?media=image&count=20&page=' + pageNumber)
     .then(res => res.json())
 
   res.json(data);

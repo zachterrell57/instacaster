@@ -73,7 +73,7 @@ const Home: NextPage<HomeProps> = ({ castsProp }) => {
 export async function getServerSideProps() {
 
   const castsProp: GenericCast[] = [];
-  await fetch('https://searchcaster.xyz/api/search?text=imgur&count=20'
+  await fetch('https://searchcaster.xyz/api/search?media=image&count=20'
   ).then(res => res.json())
     .then(data => {
       data['casts'].map((jsonCast: any) => {
